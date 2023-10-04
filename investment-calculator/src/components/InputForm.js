@@ -14,8 +14,6 @@ function InputForm() {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    // Should be triggered when form is submitted
-    // You might not directly want to bind it to the submit event on the form though...
 
     const yearlyData = []; // per-year results
 
@@ -40,13 +38,11 @@ function InputForm() {
         investedCapital: +(currentSavings - totalInterest).toFixed(2),
       });
     }
-
-    // do something with yearlyData ...
     setData(yearlyData);
-    // userInput.currentSaving = '';
-    // userInput.yearlySaving = '';
-    // userInput.expInterest = '';
-    // userInput.duration = '';
+  };
+
+  const onReset = () => {
+    setData([]);
   };
 
   return (
@@ -58,7 +54,6 @@ function InputForm() {
             <input
               type="number"
               id="current-savings"
-              //   value={userInput.currentSaving}
               onChange={currentSavingHandler}
             />
           </p>
@@ -67,7 +62,6 @@ function InputForm() {
             <input
               type="number"
               id="yearly-contribution"
-              //   value={userInput.yearlySaving}
               onChange={yearlySavingHandler}
             />
           </p>
@@ -80,22 +74,16 @@ function InputForm() {
             <input
               type="number"
               id="expected-return"
-              //   value={userInput.expInterest}
               onChange={expInterestHandler}
             />
           </p>
           <p>
             <label htmlFor="duration">Investment Duration (years)</label>
-            <input
-              type="number"
-              id="duration"
-              //   value={userInput.duration}
-              onChange={durationHandler}
-            />
+            <input type="number" id="duration" onChange={durationHandler} />
           </p>
         </div>
         <p className={styles.actions}>
-          <button type="reset" className={styles.buttonAlt}>
+          <button type="reset" className={styles.buttonAlt} onClick={onReset}>
             Reset
           </button>
           <button type="submit" className={styles.button}>
