@@ -1,0 +1,12 @@
+.user-item {
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin: 0.4rem 0;
+  padding: 0.4rem;
+  border: 1px solid black;
+  border-radius: 0.15rem;
+}
+
+.user-item p {
+  margin: 0;
+}

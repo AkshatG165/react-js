@@ -1,0 +1,7 @@
+.item-list {
+  max-width: 30rem;
+  margin: 2rem auto;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: white;
+}

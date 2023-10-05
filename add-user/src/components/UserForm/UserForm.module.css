@@ -1,0 +1,22 @@
+.form {
+  max-width: 30rem;
+  margin: 2rem auto;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: white;
+}
+
+.input-group {
+  margin: 0.5rem 0;
+}
+
+.input-group label {
+  font-size: 0.9rem;
+  font-weight: bolder;
+}
+
+.input-group input {
+  display: block;
+  width: 100%;
+  margin: 0.4rem 0;
+}
