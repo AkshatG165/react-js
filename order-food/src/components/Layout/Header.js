@@ -10,6 +10,9 @@ function Header() {
         <h1>ReactMeals</h1>
         <HeaderCart />
       </div>
+      <div className={classes['meals-bg']}>
+        <img src={mealsImage} alt="meals.jpg" />
+      </div>
     </Fragment>
   );
 }
