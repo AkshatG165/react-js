@@ -1,20 +1,20 @@
-import { useState, Fragment } from 'react';
+import { useState } from 'react';
 import Header from './components/Layout/Header';
 import Meals from './components/Meals/Meals';
 import Modal from './components/UI/Modal/Modal';
+import ModalContext from './context/modal-context';
 
 function App() {
   const [showModal, setShowModal] = useState(false);
 
-  const onModalLoad = () => setShowModal(true);
-  const onModalClose = () => setShowModal(false);
-
   return (
-    <Fragment>
-      <Header onModalLoad={onModalLoad} />
+    <ModalContext.Provider
+      value={{ showModal: showModal, setShowModal: setShowModal }}
+    >
+      <Header />
       <Meals />
-      {showModal && <Modal onModalClose={onModalClose} />}
-    </Fragment>
+      {showModal && <Modal />}
+    </ModalContext.Provider>
   );
 }
 

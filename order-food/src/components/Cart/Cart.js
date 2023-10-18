@@ -1,6 +1,7 @@
-import { Fragment } from 'react';
+import { Fragment, useContext } from 'react';
 import classes from './Cart.module.css';
 import CartItem from './CartItem';
+import ModalContext from '../../context/modal-context';
 
 const DummyItems = [
   { name: 'Sushi', price: 22.99, quantity: 2 },
@@ -9,7 +10,7 @@ const DummyItems = [
   { name: 'Green Bowl', price: 18.99, quantity: 2 },
 ];
 
-function Cart(props) {
+function Cart() {
   const cartItemList = DummyItems.map((cartItem) => (
     <li key={cartItem.name}>
       <CartItem cartItem={cartItem} />
@@ -17,6 +18,9 @@ function Cart(props) {
   ));
 
   const onOrder = () => console.log('Ordering...');
+
+  const modalctx = useContext(ModalContext);
+  const onClick = () => modalctx.setShowModal(false);
 
   return (
     <Fragment>
@@ -34,7 +38,7 @@ function Cart(props) {
         <button
           type="button"
           className={`${classes['btn']} ${classes['close']}`}
-          onClick={props.onModalClose}
+          onClick={onClick}
         >
           Close
         </button>
