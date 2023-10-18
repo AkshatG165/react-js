@@ -2,10 +2,10 @@ import Cart from '../../Cart/Cart';
 import Card from '../Card/Card';
 import classes from './Modal.module.css';
 
-function Modal() {
+function Modal(props) {
   return (
-    <Card className={classes['modal']}>
-      <Cart />
+    <Card className={`${classes['modal']}`}>
+      <Cart onModalClose={props.onModalClose} />
     </Card>
   );
 }

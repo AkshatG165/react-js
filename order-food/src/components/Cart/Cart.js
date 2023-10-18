@@ -9,12 +9,14 @@ const DummyItems = [
   { name: 'Green Bowl', price: 18.99, quantity: 2 },
 ];
 
-function Cart() {
+function Cart(props) {
   const cartItemList = DummyItems.map((cartItem) => (
     <li key={cartItem.name}>
       <CartItem cartItem={cartItem} />
     </li>
   ));
+
+  const onOrder = () => console.log('Ordering...');
 
   return (
     <Fragment>
@@ -32,12 +34,14 @@ function Cart() {
         <button
           type="button"
           className={`${classes['btn']} ${classes['close']}`}
+          onClick={props.onModalClose}
         >
           Close
         </button>
         <button
           type="button"
           className={`${classes['btn']} ${classes['order']}`}
+          onClick={onOrder}
         >
           Order
         </button>

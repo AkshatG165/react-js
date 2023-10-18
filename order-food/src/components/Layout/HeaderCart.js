@@ -1,9 +1,9 @@
 import classes from './HeaderCart.module.css';
 import CartIcon from '../Cart/CartIcon';
 
-function HeaderCart() {
+function HeaderCart(props) {
   return (
-    <button className={classes['button']}>
+    <button className={classes['button']} onClick={props.onModalLoad}>
       <span className={classes['icon']}>
         <CartIcon />
       </span>
