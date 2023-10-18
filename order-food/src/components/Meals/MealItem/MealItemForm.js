@@ -5,7 +5,7 @@ function MealItemForm() {
     <form className={classes['form']}>
       <div>
         <label>Amount</label>
-        <input type="number" value="1" />
+        <input type="number" defaultValue="1" />
       </div>
       <button type="submit">+Add</button>
     </form>
