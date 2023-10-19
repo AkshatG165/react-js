@@ -3,7 +3,7 @@ import classes from './Cart.module.css';
 import CartItem from './CartItem';
 import ModalContext from '../../context/modal-context';
 
-const DummyItems = [
+const cartItems = [
   { name: 'Sushi', price: 22.99, quantity: 2 },
   { name: 'Schnitzel', price: 16.5, quantity: 2 },
   { name: 'Barbecue Burger', price: 12.99, quantity: 2 },
@@ -11,7 +11,7 @@ const DummyItems = [
 ];
 
 function Cart() {
-  const cartItemList = DummyItems.map((cartItem) => (
+  const cartItemList = cartItems.map((cartItem) => (
     <li key={cartItem.name}>
       <CartItem cartItem={cartItem} />
     </li>
@@ -29,9 +29,9 @@ function Cart() {
         <h3>Total Amount</h3>
         <h3>
           $
-          {DummyItems.map(
-            (cartItem) => cartItem.price * cartItem.quantity
-          ).reduce((sum, currentValue) => sum + currentValue, 0)}
+          {cartItems
+            .map((cartItem) => cartItem.price * cartItem.quantity)
+            .reduce((sum, currentValue) => sum + currentValue, 0)}
         </h3>
       </div>
       <div className={classes['buttons']}>

@@ -3,6 +3,7 @@ import Header from './components/Layout/Header';
 import Meals from './components/Meals/Meals';
 import Modal from './components/UI/Modal/Modal';
 import ModalContext from './context/modal-context';
+import CartItemsContext from './context/cartitems-context';
 
 function App() {
   const [showModal, setShowModal] = useState(false);
@@ -13,7 +14,9 @@ function App() {
     >
       <Header />
       <Meals />
-      {showModal && <Modal />}
+      <CartItemsContext.Provider>
+        {showModal && <Modal />}
+      </CartItemsContext.Provider>
     </ModalContext.Provider>
   );
 }
