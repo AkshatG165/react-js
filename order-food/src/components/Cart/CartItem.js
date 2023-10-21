@@ -1,6 +1,14 @@
+import { useContext } from 'react';
 import classes from './CartItem.module.css';
+import CartItemsContext from '../../store/cartitems-context';
 
 function CartItem({ cartItem }) {
+  const cartItemsctx = useContext(CartItemsContext);
+  const cartitem = { name: cartItem.name, price: cartItem.price, quantity: 1 };
+
+  const onAdd = () => cartItemsctx.addItem(cartitem);
+  const onRemove = () => cartItemsctx.removeItem(cartitem);
+
   return (
     <div className={classes['cart-item']}>
       <div>
@@ -11,8 +19,12 @@ function CartItem({ cartItem }) {
         </div>
       </div>
       <div>
-        <button type="button">-</button>
-        <button type="button">+</button>
+        <button type="button" onClick={onRemove}>
+          -
+        </button>
+        <button type="button" onClick={onAdd}>
+          +
+        </button>
       </div>
     </div>
   );

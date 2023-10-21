@@ -1,7 +1,8 @@
-import { useReducer } from 'react';
+import { useContext } from 'react';
 import classes from './AvailableMeals.module.css';
 import Card from '../UI/Card/Card';
 import MealItem from './MealItem/MealItem';
+import CartItemsContext from '../../store/cartitems-context';
 
 const DummyMeals = [
   { name: 'Sushi', description: 'Finest fish & veggies', price: 22.99 },
@@ -14,26 +15,8 @@ const DummyMeals = [
   { name: 'Green Bowl', description: 'Healthy...and green...', price: 18.99 },
 ];
 
-const cartItemsReducer = (state, action) => {
-  if (action.type === 'ITEM_PRESENT') {
-    console.log(state, action);
-    return state.map((item) => {
-      if (item.name === action.item.name)
-        return {
-          name: item.name,
-          price: item.price,
-          quantity: item.quantity + action.item.quantity,
-        };
-      else return item;
-    });
-  }
-  if (action.type === 'ITEM_NOT_PRESENT') return [...state, action.item];
-  return [];
-};
-
 function AvailableMeals() {
-  let itemPresent = false;
-  const [cartItems, dispatchCartItems] = useReducer(cartItemsReducer, []);
+  const cartItemsctx = useContext(CartItemsContext);
 
   const onCartItemAdd = (quantity, nameRef, priceRef) => {
     const cartItem = {
@@ -41,19 +24,7 @@ function AvailableMeals() {
       price: +priceRef.substring(1),
       quantity: +quantity,
     };
-
-    if (cartItems.length === 0) {
-      dispatchCartItems({ type: 'ITEM_NOT_PRESENT', item: cartItem });
-      return;
-    }
-
-    cartItems.forEach((item) => {
-      if (item.name === cartItem.name) itemPresent = true;
-    });
-
-    itemPresent
-      ? dispatchCartItems({ type: 'ITEM_PRESENT', item: cartItem })
-      : dispatchCartItems({ type: 'ITEM_NOT_PRESENT', item: cartItem });
+    cartItemsctx.addItem(cartItem);
   };
 
   const mealsList = DummyMeals.map((meal) => (

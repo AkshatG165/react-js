@@ -1,23 +1,23 @@
 import { useState } from 'react';
 import Header from './components/Layout/Header';
 import Meals from './components/Meals/Meals';
-import Modal from './components/UI/Modal/Modal';
-import ModalContext from './context/modal-context';
-import CartItemsContext from './context/cartitems-context';
+import CartContext from './store/cart-context';
+import Cart from './components/Cart/Cart';
+import CartItemsProvider from './store/CartItemsProvider';
 
 function App() {
-  const [showModal, setShowModal] = useState(false);
+  const [showCart, setShowCart] = useState(false);
 
   return (
-    <ModalContext.Provider
-      value={{ showModal: showModal, setShowModal: setShowModal }}
+    <CartContext.Provider
+      value={{ showCart: showCart, setShowCart: setShowCart }}
     >
-      <Header />
-      <Meals />
-      <CartItemsContext.Provider>
-        {showModal && <Modal />}
-      </CartItemsContext.Provider>
-    </ModalContext.Provider>
+      <CartItemsProvider>
+        {showCart && <Cart />}
+        <Header />
+        <Meals />
+      </CartItemsProvider>
+    </CartContext.Provider>
   );
 }
 
