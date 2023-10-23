@@ -63,7 +63,6 @@ function CartItemsProvider(props) {
     <CartItemsContext.Provider
       value={{
         cartItems: cartItems,
-        dispatchCartItems: dispatchCartItems,
         addItem: addItem,
         removeItem: removeItem,
       }}

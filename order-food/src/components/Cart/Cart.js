@@ -28,7 +28,7 @@ function Cart() {
       <ul className={classes['cart-list']}>{cartItemList}</ul>
       <div className={classes['total']}>
         <h3>Total Amount</h3>
-        <h3>${totalAmount}</h3>
+        <h3>${totalAmount.toFixed(2)}</h3>
       </div>
       <div className={classes['buttons']}>
         <button

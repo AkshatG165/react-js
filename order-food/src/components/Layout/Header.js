@@ -7,7 +7,7 @@ function Header() {
   return (
     <Fragment>
       <div className={classes['header']}>
-        <h1>ReactMeals</h1>
+        <h1>React Meals</h1>
         <HeaderCart />
       </div>
       <div className={classes['meals-bg']}>

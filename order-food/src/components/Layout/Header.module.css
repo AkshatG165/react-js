@@ -9,9 +9,45 @@
 
 h1 {
   margin: 0;
+  margin-left: 2rem;
 }
 
 img {
   width: 100vw;
   height: 40vh;
 }
+
+@media (max-width: 900px) {
+  .header {
+    padding: 1rem 5rem;
+  }
+}
+
+@media (max-width: 650px) {
+  .header {
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem 1rem;
+  }
+  h1 {
+    margin: 0;
+    margin-bottom: 1rem;
+  }
+}
+
+/* @media (max-width: 760px) {
+  .header {
+    justify-content: center;
+    padding: 1rem 1rem;
+  }
+  h1 {
+    margin-left: 0;
+    margin-bottom: 1rem;
+  }
+} */
+
+/* @media (min-width: 760px) {
+  .header {
+    justify-content: space-between;
+  }
+} */
