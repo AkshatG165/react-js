@@ -1,6 +1,5 @@
 import { useState, useContext } from 'react';
 import TurnContext from '../store/turn-context';
-import PlayersContext from '../store/players-context';
 import WinningCombinations from './winning-combinations';
 
 function GameBoard(props) {
