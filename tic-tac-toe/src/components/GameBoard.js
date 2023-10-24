@@ -10,7 +10,6 @@ function GameBoard(props) {
     ['', '', ''],
   ];
   const turnctx = useContext(TurnContext);
-  const playersctx = useContext(PlayersContext);
   const [buttons, setButtons] = useState(initialState);
 
   const onClick = (e) => {
