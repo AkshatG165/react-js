@@ -84,6 +84,11 @@ h1 {
   color: #f6e35a;
 }
 
+.active {
+  border-color: #f6e35a;
+  animation: pulse 2s infinite ease-in-out;
+}
+
 #players button {
   width: 3rem;
   border: none;
@@ -164,7 +169,7 @@ ol {
   flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
-  margin: 3rem 0;
+  margin: 3rem 2rem;
   padding: 0;
   flex-direction: column;
 }
