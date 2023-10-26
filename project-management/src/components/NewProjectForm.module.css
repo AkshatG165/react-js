@@ -1,0 +1,63 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 3rem;
+  width: 30rem;
+  margin-bottom: 20rem;
+}
+
+.form .buttons {
+  width: 100%;
+  text-align: end;
+}
+
+button {
+  border: 0;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+}
+
+.btn-cancel {
+  background-color: whitesmoke;
+  color: rgb(27, 24, 24);
+}
+
+.btn-save {
+  color: whitesmoke;
+  background-color: rgb(27, 24, 24);
+}
+.form label {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: rgb(83, 77, 77);
+}
+
+.form input,
+textarea {
+  width: 100%;
+  border: 0;
+  background-color: lightgray;
+  border-radius: 0.2rem;
+  padding: 0.7rem;
+  margin-top: 0.3rem;
+  font-size: 1rem;
+}
+
+.form textarea {
+  min-height: 5rem;
+}
+
+.form .field-group {
+  width: 100%;
+  margin: 0.5rem 0;
+}
+
+.form input:focus,
+textarea:focus,
+input:active,
+textarea:active {
+  outline: none;
+  border-bottom: 2px solid rgb(27, 24, 24);
+}

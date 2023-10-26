@@ -1,0 +1,22 @@
+.projects {
+  margin-top: 5vh;
+  background-color: rgb(27, 24, 24);
+  min-height: 95vh;
+  padding: 2rem;
+  border-radius: 0 1rem 0 0;
+}
+
+.projects h1 {
+  color: whitesmoke;
+  padding-right: 6rem;
+  margin-bottom: 2rem;
+}
+
+.projects button {
+  color: rgb(146, 146, 146);
+  background-color: rgb(62, 58, 58);
+  border: 0;
+  font-size: 1.2rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+}

@@ -1,0 +1,29 @@
+.new-project {
+  margin: auto;
+  text-align: center;
+  padding-bottom: 10rem;
+}
+
+.new-project img {
+  max-width: 10rem;
+}
+
+.new-project h1 {
+  color: rgb(45, 42, 42);
+  margin-bottom: 1.5rem;
+}
+
+.new-project h3 {
+  font-weight: lighter;
+  color: rgb(153, 142, 117);
+}
+
+.new-project button {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  font-size: 1.2rem;
+  color: rgb(153, 142, 117);
+  background-color: rgb(45, 42, 42);
+  border: 0px;
+  border-radius: 0.5rem;
+}
