@@ -1,0 +1,19 @@
+.task-list {
+  width: 100%;
+  background-color: rgb(234, 234, 234);
+  border-radius: 0.5rem;
+  padding: 1rem 1rem;
+  list-style: none;
+}
+
+.task-list .list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.list-item button {
+  width: auto;
+  border: 0;
+}

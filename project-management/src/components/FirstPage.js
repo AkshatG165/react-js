@@ -1,8 +1,8 @@
 import classes from './FirstPage.module.css';
 import noProjects from '../assets/no-projects.png';
 
-function NewProject() {
-  const onClick = () => {};
+function NewProject(props) {
+  const onClick = () => props.setState('new-project');
   return (
     <div className={classes['new-project']}>
       <img src={noProjects} alt="No Projects" />

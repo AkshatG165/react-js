@@ -1,0 +1,25 @@
+.project-list {
+  width: 100%;
+  padding: 1rem 0rem;
+  list-style: none;
+  margin-bottom: 1rem;
+}
+
+.project-list .project-item {
+  margin: 1rem 0;
+}
+
+.project-item button {
+  width: auto;
+  border: 0;
+  background-color: rgb(27, 24, 24);
+  padding: 0;
+  margin-top: 0.5rem;
+  font-size: medium;
+}
+
+.project-item button:active,
+.project-item button:hover {
+  color: whitesmoke;
+  font-size: large;
+}
