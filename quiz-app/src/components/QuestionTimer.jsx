@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 
 export default function QuestionTimer(props) {
-  const [timeLeft, setTimeLeft] = useState(5000);
+  const [timeLeft, setTimeLeft] = useState(props.timer);
 
   useEffect(() => {
-    const timer = setTimeout(() => props.onTimeOver(), 5000);
+    const timer = setTimeout(() => props.onTimeOver(), props.timer);
     const counter = setInterval(() => {
       setTimeLeft((prev) => prev - 4);
     }, 1);
@@ -12,9 +12,9 @@ export default function QuestionTimer(props) {
     return () => {
       clearTimeout(timer);
       clearInterval(counter);
-      setTimeLeft(5000);
+      setTimeLeft(props.timer);
     };
   }, [props.userAnswer]);
 
-  return <progress id="question-time" value={timeLeft} max="5000" />;
+  return <progress id="question-time" value={timeLeft} max={props.timer} />;
 }
