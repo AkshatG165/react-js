@@ -1,23 +1,10 @@
-import { useEffect, useState } from 'react';
 import Places from './Places.jsx';
 import Error from './Error.jsx';
 import FetchAvailablePlaces from './Http.jsx';
+import useFetch from '../hooks/useFetch.js';
 
 export default function AvailablePlaces({ onSelectPlace }) {
-  const [places, setPlaces] = useState([]);
-  const [error, setError] = useState();
-
-  useEffect(() => {
-    async function fetchPlaces() {
-      try {
-        const availablePlaces = await FetchAvailablePlaces();
-        setPlaces(availablePlaces);
-      } catch (error) {
-        setError({ message: error.message || 'some error occoured' });
-      }
-    }
-    fetchPlaces();
-  }, []);
+  const { data: places, error } = useFetch(FetchAvailablePlaces, []);
 
   if (error)
     return <Error title="An error occoured!" message={error.message} />;
