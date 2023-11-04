@@ -1,8 +1,12 @@
-export default function Cart() {
-  const onCartHandler = () => {};
+import { useContext } from 'react';
+import cartItemsContext from '../store/cartItems-context';
+
+export default function Cart(props) {
+  const cartItemCtx = useContext(cartItemsContext);
+  const onCartHandler = () => props.setShowCart(true);
   return (
-    <button className="cart" type="button" onClick={onCartHandler}>
-      Cart ({3})
+    <button type="button" onClick={onCartHandler}>
+      Cart ({cartItemCtx.cartItems.length})
     </button>
   );
 }

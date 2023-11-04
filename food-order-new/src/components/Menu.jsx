@@ -1,26 +1,46 @@
+import { useContext } from 'react';
 import FetchMenu from '../Http';
 import useFetch from '../hooks/useFetch';
 import Error from './Error.jsx';
+import cartItemsContext from '../store/cartItems-context';
 
 export default function Menu() {
+  const cartItemCtx = useContext(cartItemsContext);
   const { data: menu, isloading, error } = useFetch(FetchMenu, []);
-  const onItemAdd = () => {};
 
   const menuItems = menu.map((item) => (
-    <li key={item.id} className="menu-item">
+    <li key={item.id} className="meal-item">
       <img
         src={`http://localhost:3000/${item.image}`}
         alt={item.image.split('/')[1]}
       />
       <h3>{item.name}</h3>
-      <p className="price">{item.price}</p>
-      <p className="description">{item.description}</p>
-      <button type="button" onClick={onItemAdd}>
+      <p className="meal-item-price">{item.price}</p>
+      <p className="meal-item-description">{item.description}</p>
+      <button
+        type="button"
+        onClick={() => {
+          cartItemCtx.addItem({
+            id: item.id,
+            name: item.name,
+            price: item.price,
+            quantity: 1,
+          });
+        }}
+      >
         Add to Cart
       </button>
     </li>
   ));
 
   if (error) return <Error />;
-  return <ol id="menu">{isloading ? <p>Fetching menu...</p> : menuItems}</ol>;
+  return <ol id="meals">{isloading ? <p>Fetching menu...</p> : menuItems}</ol>;
 }
+
+// const onItemAdd = (item) =>
+// cartItemCtx.addItem({
+//   id: item.id,
+//   name: item.name,
+//   price: item.price,
+//   quantity: 1,
+// });

@@ -1,14 +1,14 @@
 import logo from '../assets/logo.jpg';
 import Cart from './Cart';
 
-export default function Header() {
+export default function Header(props) {
   return (
-    <header id="header">
-      <div className="logo">
+    <header id="main-header">
+      <div id="title">
         <img src={logo} alt="ReactFood" />
         <h1>REACTFOOD</h1>
       </div>
-      <Cart />
+      <Cart setShowCart={props.setShowCart} />
     </header>
   );
 }

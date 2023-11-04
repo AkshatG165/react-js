@@ -38,6 +38,9 @@ body {
 #main-header button {
   font-size: 1.5rem;
   font-family: 'Lato', sans-serif;
+  border: none;
+  background-color: #29251c;
+  color: #ffc404;
 }
 
 h1 {
@@ -107,8 +110,24 @@ h1 {
   margin-bottom: 1.5rem;
 }
 
+.meal-item button {
+  font-size: 0.9rem;
+  font-family: 'Lato', sans-serif;
+  border: none;
+  background-color: #ffc404;
+  color: #312c1d;
+  border-radius: 0.25rem;
+  padding: 0.5rem 1rem;
+  margin: 1rem;
+}
+
 .cart h2 {
   margin: 1rem 0;
+  color: #312c1d;
+}
+
+.cart .empty {
+  color: #312c1d;
 }
 
 .cart ul {
@@ -150,6 +169,7 @@ h1 {
 
 .cart-item p {
   margin: 0;
+  color: #312c1d;
 }
 
 .cart-item-actions {
