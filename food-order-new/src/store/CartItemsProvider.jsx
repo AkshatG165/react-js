@@ -43,8 +43,6 @@ export default function CartItemsProvider(props) {
   const removeItem = (cartItem) =>
     dispatchCartItems({ type: 'removeItem', item: cartItem });
 
-  // console.log(cartItems);
-
   return (
     <CartItemsContext.Provider
       value={{

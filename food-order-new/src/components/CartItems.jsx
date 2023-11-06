@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import cartItemsContext from '../store/cartItems-context';
 import Modal from './Modal';
 
@@ -24,7 +24,10 @@ export default function CartItems(props) {
     .reduce((total, currVal) => total + currVal, 0);
 
   const onClose = () => props.setShowCart(false);
-  const onCheckout = () => {};
+  const onCheckout = () => {
+    props.setShowCart(false);
+    props.setShowCheckoutForm(true);
+  };
 
   return (
     <Modal>

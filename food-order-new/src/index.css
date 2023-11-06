@@ -43,7 +43,7 @@ body {
   color: #ffc404;
 }
 
-h1 {
+#main-header h1 {
   font-family: 'Lato', sans-serif;
   font-weight: 700;
   font-size: 2rem;
@@ -196,6 +196,13 @@ h1 {
 .cart-item-actions button:active {
   background-color: #1d1a16;
   color: #ffab04;
+}
+
+.checkout-form,
+p,
+label,
+h1 {
+  color: #312c1d;
 }
 
 .control {
