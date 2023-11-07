@@ -28,6 +28,7 @@ const reducer = (state, action) => {
       })
       .filter((item) => item.quantity !== 0);
   }
+  if (action.type === 'reset_cart') return [];
   return state;
 };
 
@@ -43,12 +44,15 @@ export default function CartItemsProvider(props) {
   const removeItem = (cartItem) =>
     dispatchCartItems({ type: 'removeItem', item: cartItem });
 
+  const resetCart = () => dispatchCartItems({ type: 'reset_cart' });
+
   return (
     <CartItemsContext.Provider
       value={{
         cartItems: cartItems,
         addItem: addItem,
         removeItem: removeItem,
+        resetCart: resetCart,
       }}
     >
       {props.children}

@@ -6,7 +6,7 @@ import cartItemsContext from '../store/cartItems-context';
 
 export default function Menu() {
   const cartItemCtx = useContext(cartItemsContext);
-  const { data: menu, isloading, error } = useFetch(FetchMenu, []);
+  const { data: menu, isLoading, error } = useFetch(FetchMenu, []);
 
   const menuItems = menu.map((item) => (
     <li key={item.id} className="meal-item">
@@ -34,13 +34,7 @@ export default function Menu() {
   ));
 
   if (error) return <Error />;
-  return <ol id="meals">{isloading ? <p>Fetching menu...</p> : menuItems}</ol>;
+  return (
+    <ol id="meals">{isLoading ? <li>Fetching menu...</li> : menuItems}</ol>
+  );
 }
-
-// const onItemAdd = (item) =>
-// cartItemCtx.addItem({
-//   id: item.id,
-//   name: item.name,
-//   price: item.price,
-//   quantity: 1,
-// });

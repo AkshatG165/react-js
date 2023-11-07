@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import cartItemsContext from '../store/cartItems-context';
 import Modal from './Modal';
 
@@ -25,6 +25,7 @@ export default function CartItems(props) {
 
   const onClose = () => props.setShowCart(false);
   const onCheckout = () => {
+    if (cartItemCtx.cartItems.length === 0) return;
     props.setShowCart(false);
     props.setShowCheckoutForm(true);
   };
