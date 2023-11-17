@@ -1,8 +1,17 @@
+import { Link, useNavigation, useSubmit } from 'react-router-dom';
 import classes from './EventItem.module.css';
 
 function EventItem({ event }) {
+  const submit = useSubmit();
+  const navigation = useNavigation();
+  const isSubmitting = navigation.state === 'submitting';
+
   function startDeleteHandler() {
-    // ...
+    const onConfirm = window.confirm('Are you sure?');
+    if (onConfirm) {
+      //first arguement is data that we wnat ot submit, which will automatically be wrapped in a formData object which we can retrive later
+      submit(null, { method: 'DELETE' });
+    }
   }
 
   return (
@@ -12,8 +21,10 @@ function EventItem({ event }) {
       <time>{event.date}</time>
       <p>{event.description}</p>
       <menu className={classes.actions}>
-        <a href="edit">Edit</a>
-        <button onClick={startDeleteHandler}>Delete</button>
+        <Link to="edit">Edit</Link>
+        <button onClick={startDeleteHandler} disabled={isSubmitting}>
+          {isSubmitting ? 'Deleting...' : 'Delete'}
+        </button>
       </menu>
     </article>
   );

@@ -1,11 +1,1 @@
-{
-  "events": [
-    {
-      "id": "e1",
-      "title": "A dummy event",
-      "date": "2023-02-22",
-      "image": "https://blog.hubspot.de/hubfs/Germany/Blog_images/Optimize_Marketing%20Events%20DACH%202021.jpg",
-      "description": "Join this amazing event and connect with fellow developers."
-    }
-  ]
-}
+{"events":[{"title":"New Year Party!!","image":"https://theperfectevent.com/wp-content/uploads/2020/01/Main-Scroll-2.jpg","date":"2024-01-01","description":"The awesome new year party","id":"c8bf6429-8f13-440d-902f-353d9e95b76e"},{"title":"Diwali !","image":"https://www.ucf.edu/wp-content/blogs.dir/20/files/2022/10/Diwali.jpg","date":"2023-11-12","description":"Join us for Diwali celebration","id":"cfd156e8-05d7-4c15-95d3-b1dcb621f615"},{"title":"A dummy event","image":"https://blog.hubspot.de/hubfs/Germany/Blog_images/Optimize_Marketing%20Events%20DACH%202021.jpg","date":"2023-12-13","description":"Join this amazing event and connect with fellow developers.","id":"e1"}]}
