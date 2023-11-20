@@ -4,7 +4,7 @@ import {
   useNavigation,
   useActionData,
   json,
-  redirect
+  redirect,
 } from 'react-router-dom';
 
 import classes from './EventForm.module.css';
@@ -105,6 +105,7 @@ export async function action({ request, params }) {
     method: method,
     headers: {
       'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + localStorage.getItem('token'),
     },
     body: JSON.stringify(eventData),
   });
@@ -119,4 +120,3 @@ export async function action({ request, params }) {
 
   return redirect('/events');
 }
-

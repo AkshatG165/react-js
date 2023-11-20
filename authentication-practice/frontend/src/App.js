@@ -1,5 +1,4 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-
 import EditEventPage from './pages/EditEvent';
 import ErrorPage from './pages/Error';
 import EventDetailPage, {
@@ -13,12 +12,19 @@ import NewEventPage from './pages/NewEvent';
 import RootLayout from './pages/Root';
 import { action as manipulateEventAction } from './components/EventForm';
 import NewsletterPage, { action as newsletterAction } from './pages/Newsletter';
+import AuthenticationPage, {
+  action as createUser,
+} from './pages/Authentication';
+import { loader as tokenLoader, authLoader } from './util/auth';
+import { action as logoutAction } from './pages/Logout';
 
 const router = createBrowserRouter([
   {
     path: '/',
+    id: 'root',
     element: <RootLayout />,
     errorElement: <ErrorPage />,
+    loader: tokenLoader,
     children: [
       { index: true, element: <HomePage /> },
       {
@@ -44,6 +50,7 @@ const router = createBrowserRouter([
                 path: 'edit',
                 element: <EditEventPage />,
                 action: manipulateEventAction,
+                loader: authLoader,
               },
             ],
           },
@@ -51,6 +58,7 @@ const router = createBrowserRouter([
             path: 'new',
             element: <NewEventPage />,
             action: manipulateEventAction,
+            loader: authLoader,
           },
         ],
       },
@@ -58,6 +66,15 @@ const router = createBrowserRouter([
         path: 'newsletter',
         element: <NewsletterPage />,
         action: newsletterAction,
+      },
+      {
+        path: 'auth',
+        element: <AuthenticationPage />,
+        action: createUser,
+      },
+      {
+        path: 'logout',
+        action: logoutAction,
       },
     ],
   },

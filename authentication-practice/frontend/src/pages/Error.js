@@ -8,16 +8,17 @@ function ErrorPage() {
 
   let title = 'An error occurred!';
   let message = 'Something went wrong!';
+  if (error && error.data) message = error.data.message;
 
-  if (error.status === 500) {
-    message = error.data.message;
-  }
+  // if (error.status === 500) {
+  //   message = error.data.message;
+  // }
 
-  if (error.status === 404) {
-    title = 'Not found!';
-    message = 'Could not find resource or page.';
-  }
-
+  // if (error.status === 404) {
+  //   title = 'Not found!';
+  //   message = 'Could not find resource or page.';
+  // }
+  console.log(error);
   return (
     <>
       <MainNavigation />
