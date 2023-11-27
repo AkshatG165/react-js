@@ -3,7 +3,7 @@ export default function ImagePicker({ images, selectedImage, onSelect }) {
     <div id="image-picker">
       <p>Select an image</p>
       <ul>
-        {images.map((image) => (
+        {images[0].map((image) => (
           <li
             key={image.path}
             onClick={() => onSelect(image.path)}
